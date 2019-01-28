@@ -5,7 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.0'
@@ -19,10 +19,32 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    commonDependencies = [
+
+            // Libraries for kotlin
+            kotlinImplementation                 : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+            coreKtxImplementation                : "androidx.core:core-ktx:1.1.0-alpha03",
+
+            // Module for AppCompat (backward compatibility)
+            appCompatImplementation              : "androidx.appcompat:appcompat:1.1.0-alpha01",
+
+            androidxAnnotationProcessor: "androidx.annotation:annotation:1.0.0",
+
+            // Modules used in testing
+            jUnitTestImplementation              : "junit:junit:4.12",
+            testRunnerAndroidTestImplementation  : "androidx.test:runner:1.1.1",
+            espressoCoreAndroidTestImplementation: "androidx.test.espresso:espresso-core:3.1.1",
+
+            // Adding Glide dependencies
+            glideImplementation                  : "com.github.bumptech.glide:glide:4.8.0",
+            glideAnnotationProcessor             : "com.github.bumptech.glide:compiler:4.8.0"
+    ]
 }
