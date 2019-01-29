@@ -37,7 +37,7 @@ ext {
             // Module for AppCompat (backward compatibility)
             appCompatImplementation              : "androidx.appcompat:appcompat:1.1.0-alpha01",
 
-            androidxAnnotationProcessor: "androidx.annotation:annotation:1.0.0",
+            androidxAnnotationProcessor          : "androidx.annotation:annotation:1.0.0",
 
             // Modules used in testing
             jUnitTestImplementation              : "junit:junit:4.12",
@@ -49,6 +49,6 @@ ext {
             glideAnnotationProcessor             : "com.github.bumptech.glide:compiler:4.8.0",
 
             // NutterTools is a java only library
-            nutterToolsImplementation: "com.github.siddhantkushwaha:nuttertools:49c8f78159"
+            nutterToolsImplementation            : "com.github.siddhantkushwaha:nuttertools:49c8f78159"
     ]
 }
