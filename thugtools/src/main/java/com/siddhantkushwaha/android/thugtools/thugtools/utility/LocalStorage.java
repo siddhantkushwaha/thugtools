@@ -7,15 +7,15 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class LocalStorage {
 
-    public static void setJson(Context context, String bucketName, String key, String json) {
+    public static void set(Context context, String bucketName, String key, String data) {
 
         SharedPreferences sharedPreferences = context.getSharedPreferences(bucketName, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(key, json);
+        editor.putString(key, data);
         editor.apply();
     }
 
-    public static String getJson(Context context, String bucketName, String key) {
+    public static String get(Context context, String bucketName, String key) {
 
         SharedPreferences sharedPreferences = context.getSharedPreferences(bucketName, MODE_PRIVATE);
         return sharedPreferences.getString(key, null);
