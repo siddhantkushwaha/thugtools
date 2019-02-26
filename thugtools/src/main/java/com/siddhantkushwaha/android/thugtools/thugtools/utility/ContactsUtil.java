@@ -1,7 +1,6 @@
 package com.siddhantkushwaha.android.thugtools.thugtools.utility;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -10,7 +9,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.ContactsContract;
 import androidx.annotation.RequiresApi;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.util.HashMap;
@@ -21,23 +19,13 @@ public class ContactsUtil {
         return (ContextCompat.checkSelfPermission(context.getApplicationContext(), Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED);
     }
 
-    public static void getReadContactsPermission(Activity activity) {
-
-        if (!contactsReadPermission(activity)) {
-            ActivityCompat.requestPermissions(activity,
-                    new String[]{Manifest.permission.READ_CONTACTS},
-                    0);
-        }
-    }
-
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     public static HashMap<String, String> getAllContacts(Context context) {
 
-        HashMap<String, String> contactsList = new HashMap<>();
-
         if (!contactsReadPermission(context))
-            return contactsList;
+            return null;
 
+        HashMap<String, String> contactsList = new HashMap<>();
         ContentResolver contentResolver = context.getContentResolver();
 
         Uri uri = ContactsContract.CommonDataKinds.Contactables.CONTENT_URI;
