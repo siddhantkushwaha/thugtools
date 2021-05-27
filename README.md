@@ -1,1 +1,3 @@
-# thug-tools
+# Thugtools
+
+Utility functions for Android.
